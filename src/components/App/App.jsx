@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { Form } from 'components/Form';
+import { ContactForm } from 'components/ContactForm';
 import { ListContacts } from 'components/ListContacts';
 import { Title } from 'components/Title';
 import { Phonebook, MainTitle } from "./App.styled"
@@ -60,7 +60,7 @@ export class App extends Component {
         <Title
           title="Phonebook"
           children={
-            <Form
+            <ContactForm
               onSubmit={this.submitContact}
               contactsBase={this.state.contacts}
             />
