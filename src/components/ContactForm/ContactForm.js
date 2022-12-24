@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -115,3 +116,15 @@ export class ContactForm extends Component {
         );
     }
 }
+
+ContactForm.propTypes = {
+    // initialValues: PropTypes.shape({
+    //     name: PropTypes.string.isRequired,
+    //     number: PropTypes.string.isRequired,
+    // }).isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    // validationSchema: PropTypes.shape({
+    //     name: PropTypes.string.isRequired,
+    //     number: PropTypes.string.isRequired,
+    // }).isRequired,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { RiTeamFill } from 'react-icons/ri';
 import { LabelFilter, InputFilter } from './Filter.styled';
@@ -19,4 +20,9 @@ export const Filter = ({ filterContact, filter }) => {
             />
         </LabelFilter>
     );
+};
+
+Filter.propTypes = {
+    filterContact: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired,
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { RiUserUnfollowFill } from 'react-icons/ri';
 
@@ -19,4 +20,13 @@ export const Contact = ({ contact, onClickBtnRemove }) => {
             </ButtonRemoveContact>
         </ItemContact>
     );
+};
+
+Contact.propTypes = {
+    contact: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+    }).isRequired,
+    onClickBtnRemove: PropTypes.func.isRequired,
 };
