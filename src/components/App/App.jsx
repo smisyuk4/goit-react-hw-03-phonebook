@@ -8,16 +8,36 @@ import { Phonebook, MainTitle } from "./App.styled"
 export class App extends Component {
   state = {
     contacts: [
-      // { id: 'id-1', name: 'Тарас Шевченко', number: '459-12-56' },
-      // {id: 'id-2', name: 'Іван Франко', number: '443-89-12'},
-      // {id: 'id-3', name: 'Леся Українка', number: '645-17-79'},
-      // { id: 'id-4', name: 'Григорій Сковорода', number: '227-88-33' },
-      // { id: 'id-5', name: 'Ліна Костенко', number: '4567-78-26' },
-      // { id: 'id-6', name: 'Валер’ян Підмогильний', number: '527272-91-00' },
-      // { id: 'id-7', name: 'Михайло Коцюбинський', number: '7778-99-55' },
+      { id: 'id-1', name: 'Тарас Шевченко', number: '459-12-56' },
+      {id: 'id-2', name: 'Іван Франко', number: '443-89-12'},
+      {id: 'id-3', name: 'Леся Українка', number: '645-17-79'},
+      { id: 'id-4', name: 'Григорій Сковорода', number: '227-88-33' },
+      { id: 'id-5', name: 'Ліна Костенко', number: '4567-78-26' },
+      { id: 'id-6', name: 'Валер’ян Підмогильний', number: '527272-91-00' },
+      { id: 'id-7', name: 'Михайло Коцюбинський', number: '7778-99-55' },
     ],
     filter: '',
   };
+
+  componentDidMount() {
+    let contactsLocal = localStorage.getItem('contacts')
+    
+    if (contactsLocal) {
+      contactsLocal = JSON.parse(contactsLocal)
+      this.setState({contacts: contactsLocal})
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    }
+
+    if (this.state.contacts.length === 0) {
+      localStorage.removeItem('contacts')
+    }
+  }
+
 
   submitContact = (newContact) => {
     this.setState(({ contacts }) => {
@@ -44,7 +64,7 @@ export class App extends Component {
       return {
         contacts: contacts.filter(item => item.id !== idContact)
       }
-    })
+    })   
 
     Notify.success(
     'The contact has been remove from storage',

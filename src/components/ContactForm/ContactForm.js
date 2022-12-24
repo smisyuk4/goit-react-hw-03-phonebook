@@ -118,13 +118,5 @@ export class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-    // initialValues: PropTypes.shape({
-    //     name: PropTypes.string.isRequired,
-    //     number: PropTypes.string.isRequired,
-    // }).isRequired,
     onSubmit: PropTypes.func.isRequired,
-    // validationSchema: PropTypes.shape({
-    //     name: PropTypes.string.isRequired,
-    //     number: PropTypes.string.isRequired,
-    // }).isRequired,
 };
