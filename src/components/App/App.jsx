@@ -15,6 +15,9 @@ export class App extends Component {
       { id: 'id-5', name: 'Ліна Костенко', number: '4567-78-26' },
       { id: 'id-6', name: 'Валер’ян Підмогильний', number: '527272-91-00' },
       { id: 'id-7', name: 'Михайло Коцюбинський', number: '7778-99-55' },
+      { id: 'id-8', name: 'Jack Richer', number: '55-99-55' },
+      { id: 'id-9', name: 'Batman', number: '88-99-55' },
+      { id: 'id-10', name: 'Spiderman', number: '36363-99-55' },
     ],
     filter: '',
   };
@@ -46,8 +49,8 @@ export class App extends Component {
     }})
   }
 
-  filterContact = ({target}) => {
-    this.setState({ filter: target.value });
+  filterContact = ({currentTarget}, actions) => {
+    this.setState({filter: currentTarget.value})
   };
 
   showContacts = () => {

@@ -33,6 +33,14 @@ const ContactSchema = Yup.object().shape({
             'Name may contain only letters, apostrophe, dash and spaces'
         )
         .required(),
+    find: Yup.string()
+        .min(2)
+        .max(20)
+        .matches(
+            REGEX_NAME,
+            'Name may contain only letters, apostrophe, dash and spaces'
+        )
+        .required(),
     number: Yup.string()
         .matches(
             REGEX_NUMBER,
