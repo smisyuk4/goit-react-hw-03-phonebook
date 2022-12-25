@@ -53,6 +53,10 @@ export class App extends Component {
     this.setState({filter: currentTarget.value})
   };
 
+  filterTest = ({target}) => {
+    this.setState({ filter: target.value });
+  };
+
   showContacts = () => {
     const fullBaseContacts = this.state.contacts;
     const findName = this.state.filter.toLowerCase();

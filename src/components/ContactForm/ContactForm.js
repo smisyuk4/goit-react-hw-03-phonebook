@@ -24,16 +24,8 @@ const REGEX_NAME = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-я
 const REGEX_NUMBER =
     /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
 
-const ContactSchema = Yup.object().shape({
+const contactSchema = Yup.object().shape({
     name: Yup.string()
-        .min(2)
-        .max(20)
-        .matches(
-            REGEX_NAME,
-            'Name may contain only letters, apostrophe, dash and spaces'
-        )
-        .required(),
-    find: Yup.string()
         .min(2)
         .max(20)
         .matches(
@@ -88,7 +80,7 @@ export class ContactForm extends Component {
             <Formik
                 initialValues={this.state}
                 onSubmit={this.sendContact}
-                validationSchema={ContactSchema}
+                validationSchema={contactSchema}
             >
                 <FormWrp autoComplete="off">
                     <LabelForm>
